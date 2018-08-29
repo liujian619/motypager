@@ -1,0 +1,108 @@
+﻿MotyPager文档
+
+此插件基于jquery，在使用是需要引入该插件的js文件和css文件。详见Demo。
+
+参数说明
+
+color:    
+	正常文本颜色。
+	color string
+	默认值："#787d82"
+
+disabled_color: 
+	失效文本颜色。
+	color string
+	默认值："#c8cdd2"
+
+hover_color: 
+	鼠标悬停文本颜色及该项的下边界颜色。
+	color string
+	默认值："#ec1500"
+
+cur_bgcolor: 
+	当前页的背景色。
+	color string
+	默认值："#ec1500"
+
+cur_color: 
+	当前页上的文本颜色。
+	color string
+	默认值："#fff"
+
+hide_when_only_one: 
+	当只有一项时是否隐藏。
+	boolean
+	默认值：true
+
+pc_style: 
+	是否是pc样式，如果是那么将是一字排开，否则将会是一个select
+	boolean
+	默认值：true
+
+first: 
+	是否显示首页。
+	boolean
+	默认值：true
+
+last:
+	是否显示尾页。
+	boolean
+	默认值：true
+prev: 
+	是否显示上一页。
+	boolean
+	默认值：true
+
+next: 
+	是否显示下一页。
+	boolean
+	默认值：true
+
+norefresh：
+	是否是无刷新分页，是否是无刷新分页，开启则url、cur、total参数设置无效，禁用则clicked无效
+	boolean
+	默认值：false
+
+first_text: 
+	首页显示文本。
+	string
+	默认值："首页"
+
+last_text: 
+	尾页显示文本。
+	string
+	默认值："尾页"
+
+prev_text: 
+	上一页显示文本。
+	string
+	默认值："上一页"
+
+next_text: 
+	下一页显示文本。
+	string
+	默认值："下一页"
+
+pages_shown: 
+	显示的页面按钮数目，不包括首页、尾页、上一页和下一页，建议设成奇数。
+	默认值：7,
+
+url: 
+	页面跳转链接。
+	function
+	默认值：
+	function(index){
+		return "index_" + index;
+	}
+
+clicked:
+	页面按钮点击
+	function
+	默认值：
+	clicked: function(index, update) {
+        update(1);
+    }
+    update带一个表示页面总数的参数，用于页面变更之后更新motypager。值的注意的是：clicked里面必须调用update，否则motypager将无法正常显示。
+
+
+【tip】：有刷新分页推荐使用服务器端的motypager。（原因：有利于seo）

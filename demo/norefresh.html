@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>无刷新分页 - motypager demo</title>
+    <link rel="stylesheet" type="text/css" href="../motypager.css">
+</head>
+<body>
+	<p style="margin: 20px">
+		姓名：<span id="span1" style="color:red"></span>
+		<button id="btn1">跳转到第8页</button>
+	   <div id="pager1"></div>
+    </p>
+    <br>
+    <p style="margin: 20px">
+        姓名：<span id="span2" style="color:red"></span>
+        <button id="btn2">跳转到第4页</button>
+       <div id="pager2"></div>
+    </p>
+	<script type="text/javascript" src="../jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="../motypager-2.0.min.js"></script>
+    <script type="text/javascript">
+    	var data1 = ["张无忌", "乔峰", "令狐冲", "郭靖", "杨过", "韦小宝", "李寻欢", "小鱼儿", "西门吹雪", "楚留香"];
+    	$("#pager1").motypager({
+    		norefresh: true,
+    		clicked: function(index, update) {
+	            $('#span1').text(data1[index - 1]);
+	            update(data1.length);
+	        }
+    	}).motypager("pageTo", 1);
+
+		// 按钮跳转
+    	$('#btn1').click(function(){
+    		$("#pager1").motypager("pageTo", 8);
+    	});
+    </script>
+    <script type="text/javascript">
+        var data2 = ["亚古兽", "战斗暴龙兽", "奥米加兽", "加鲁鲁兽", "阿尔法兽", "迪路兽", "红莲骑士兽", "花仙兽", "狮子兽", "哥玛兽"];
+        $("#pager2").motypager({
+            norefresh: true,
+            pc_style: false,
+            clicked: function(index, update) {
+                $('#span2').text(data2[index - 1]);
+                update(data2.length);
+            }
+        }).motypager("pageTo", 1);
+
+        // 按钮跳转
+        $('#btn2').click(function(){
+            $("#pager2").motypager("pageTo", 4);
+        });
+    </script>
+</body>
+</html>

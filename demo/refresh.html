@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>有刷新分页_第{page}页 - motypager demo</title>
+        <link rel="stylesheet" type="text/css" href="../motypager.css">
+    </head>
+    <body>
+        <p style="margin: 20px">有刷新分页_第{page}页</p>
+        <div id="pager"></div>
+        <script type="text/javascript" src="../jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="../motypager-2.0.min.js"></script>
+        <script type="text/javascript">
+    		var i = window.location.search.indexOf('=');
+    		var page = i === -1 ? 1 : window.location.search.substring(i + 1);
+    		$("title").text($("title").text().replace("{page}", page));
+    		$("p").text($("p").text().replace("{page}", page));
+	    	
+	    	$("#pager").motypager({
+	    		norefresh: false,
+	    		// pc_style: false,
+	    		url: function(index) {
+	    			return window.location.pathname + (index == 1 ? "" : "?page=" + index);
+	    		}
+	    	}).motypager("pageTo", page, 10);
+    </script>
+    </body>
+</html>
